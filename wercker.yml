@@ -1,4 +1,4 @@
-box: wercker/ubuntu
+box: wercker/default
 build:
   steps:
     - script:
