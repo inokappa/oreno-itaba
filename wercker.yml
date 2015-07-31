@@ -10,7 +10,7 @@ build:
         name: run bundle install
         code: |
           bundle install
-    -script:
+    - script:
         name: run kitchen init
         code: |
           kitchen init --driver=kitchen-docker --provisioner=itamae
