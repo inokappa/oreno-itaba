@@ -93,4 +93,6 @@ kithcen verify
 
 ### todo
 
+- 引き続き itamae を触ってみる
+- wercker で無駄に CI をしてみる
 - makanai という名前のツールを作る
