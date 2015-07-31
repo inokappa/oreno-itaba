@@ -1,10 +1,10 @@
-box: wercker/default
+box: wercker/ubuntu
 build:
   steps:
     - script:
         name: install dependency tools
         code: |
-          apt-get -y update
+          apt-get update
           apt-get -y -qq install wget unzip curl docker.io ruby ruby-dev
     - script:
         name: run bundle install

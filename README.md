@@ -1,4 +1,5 @@
 ## 俺の板場
+[![wercker status](https://app.wercker.com/status/0ee282a57bb460a915b227bde1ad6be2/s/master "wercker status")](https://app.wercker.com/project/bykey/0ee282a57bb460a915b227bde1ad6be2)
 
 ### はじめに
 
