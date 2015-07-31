@@ -4,7 +4,7 @@ build:
     - script:
         name: install dependency tools
         code: |
-          apt-get update
+          apt-get -y update
           apt-get -y -qq install wget unzip curl docker.io ruby ruby-dev
     - script:
         name: run bundle install
