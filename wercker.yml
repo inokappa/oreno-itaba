@@ -2,7 +2,6 @@ box: wercker/ubuntu
 build:
   steps:
     - script:
-    - script:
         name: install dependency tools
         code: |
           apt-get update
