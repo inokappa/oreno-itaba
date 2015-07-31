@@ -1,0 +1,33 @@
+box: wercker/ubuntu
+build:
+  steps:
+    - script:
+    - script:
+        name: install dependency tools
+        code: |
+          apt-get update
+          apt-get -y -qq install wget unzip curl docker.io ruby ruby-dev
+    - script:
+        name: run bundle install
+        code: |
+          bundle install
+    -script:
+        name: run kitchen init
+        code: |
+          kitchen init --driver=kitchen-docker --provisioner=itamae
+    - script:
+        name: run kitchen test
+        code: |
+          kitchen test
+    #- script:
+    #    name: run terraform apply 
+    #    code: |
+    #      terraform apply -var "access_key=$AWS_ACCESS_KEY_ID" -var "secret_key=$AWS_SECRET_ACCESS_KEY"
+
+  after-steps:
+    - sherzberg/slack-notify:
+        subdomain: $SLACK_TEAM
+        token: $SLACK_TOKEN
+        channel: $SLACK_CHANNEL
+        username: wercker
+        icon_url: https://avatars3.githubusercontent.com/u/1695193?s=140
