@@ -12,7 +12,7 @@ build:
           echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
     - rvm-use:
         version: 2.2.2
-    - bundle install
+    - bundle-install
     #- script:
     #    name: run kitchen init
     #    code: |
