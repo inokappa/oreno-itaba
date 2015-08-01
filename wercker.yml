@@ -1,6 +1,10 @@
 box: wercker-labs/docker
 build:
   steps:
+    - install-packages:
+        packages: |
+          ruby
+          ruby-dev
     - script:
         name: run bundle install
         code: |
@@ -14,10 +18,10 @@ build:
         name: run kitchen test
         code: |
           kitchen test
-    #- script:
-    #    name: run terraform apply 
-    #    code: |
-    #      terraform apply -var "access_key=$AWS_ACCESS_KEY_ID" -var "secret_key=$AWS_SECRET_ACCESS_KEY"
+    - script:
+        name: run kitchen verify
+        code: |
+          kitchen verify
 
   after-steps:
     - sherzberg/slack-notify:
