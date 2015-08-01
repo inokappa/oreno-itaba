@@ -33,10 +33,6 @@ build:
         name: run kitchen test
         code: |
           bundle exec kitchen test
-    - script:
-        name: run kitchen verify
-        code: |
-          bundle exec kitchen verify
 
   after-steps:
     - sherzberg/slack-notify:
