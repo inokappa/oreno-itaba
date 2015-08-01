@@ -9,6 +9,7 @@ build:
     - script:
         name: rvm install
         code: |
+          curl -sSL https://rvm.io/mpapis.asc | gpg --import -
           curl -sSL https://get.rvm.io | bash -s stable
           source $HOME/.rvm/scripts/rvm
           rvm install 2.2.2 --default
