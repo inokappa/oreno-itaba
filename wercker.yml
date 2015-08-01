@@ -6,6 +6,7 @@ build:
         name: apt-get update
         code: |-
           sudo sed -i -e 's/us-east-1.ec2.archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list && sudo apt-get update -y 
+          sudo wget -qO- https://get.docker.com/ | sh
     - script:
         name: rvm install
         code: |
