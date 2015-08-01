@@ -21,8 +21,12 @@ build:
         code: |
           which ruby
           ruby -v
-          which gem
-    - bundle-install
+          which gem 
+    - script:
+        name: bundle install
+        code: |
+          gem install bundler
+          bundle install
     - script:
         name: run kitchen verify
         code: |
