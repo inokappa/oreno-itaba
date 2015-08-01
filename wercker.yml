@@ -1,11 +1,11 @@
-box: wercker/ubuntu
+box: wercker/rvm
 build:
   steps:
     - script:
         name: install dependency tools
         code: |
           apt-get update
-          apt-get -y -qq install wget unzip curl docker.io ruby ruby-dev
+          apt-get -y -qq install docker.io
     - script:
         name: run bundle install
         code: |
