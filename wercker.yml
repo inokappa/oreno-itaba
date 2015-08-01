@@ -28,6 +28,10 @@ build:
           gem install bundler
           bundle install
     - script:
+        name: run kitchen test
+        code: |
+          bundle exec kitchen test
+    - script:
         name: run kitchen verify
         code: |
           bundle exec kitchen verify
