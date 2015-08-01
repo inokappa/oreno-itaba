@@ -4,7 +4,6 @@ build:
     - script:
         name: install dependency tools
         code: |
-          apt-get update
           apt-get -y -qq install docker.io
     - script:
         name: run bundle install
