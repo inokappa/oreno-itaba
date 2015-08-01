@@ -1,13 +1,14 @@
-box: wercker/rvm
+box: wercker-labs/docker
 build:
   steps:
     - script:
         name: install dependency tools
         code: |
-          sudo apt-get -y -qq install docker.io
+          apt-get -y -qq install ruby ruby-dev
     - script:
         name: run bundle install
         code: |
+          gem install bundler --no-ri --no-rdoc -V
           bundle install
     - script:
         name: run kitchen init
