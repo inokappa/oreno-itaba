@@ -1,0 +1,17 @@
+---
+driver:
+  name: docker
+
+provisioner:
+  name: itamae
+
+platforms:
+  - name: centos-6
+    driver_config:
+      image: centos:centos6
+      require_chef_omnibus: false
+
+suites:
+  - name: default
+    run_list:
+      - cookbooks/httpd/default.rb
