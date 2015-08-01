@@ -16,11 +16,13 @@ build:
           echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
     - rvm-use:
         version: 2.2.2
-    - bundle-install
     - script:
-        name: run kitchen test
+        name: check ruby
         code: |
-          bundle exec kitchen test
+          which ruby
+          ruby -v
+          which gem
+    - bundle-install
     - script:
         name: run kitchen verify
         code: |
