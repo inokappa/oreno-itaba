@@ -14,4 +14,4 @@ platforms:
 suites:
   - name: default
     run_list:
-      - cookbooks/httpd/default.rb
+      - recipes/httpd/default.rb

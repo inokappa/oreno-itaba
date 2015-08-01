@@ -60,9 +60,10 @@ kitchen converge
 kithcen verify
 ```
 
-### ハマったところ
+### ハマったところとか
 
 - 検証環境（MacOS X 10.10）の Ruby バージョンが古かったので ruby-build を更新して `rbenv install 2.2.2` でRuby を更新
+- spec ファイルの置き場は `test/integration/default/serverspec/*_spec.rb` にレシピ毎に置く
 
 ### ファイル構成
 

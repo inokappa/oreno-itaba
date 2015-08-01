@@ -3,9 +3,12 @@ no-response-timeout: 10
 build:
   steps:
     - script:
+        name: apt-get update
+        code: |-
+          sudo sed -i -e 's/us-east-1.ec2.archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list && sudo apt-get update -y 
+    - script:
         name: rvm install
         code: |
-          sudo apt-get update -y
           curl -sSL https://get.rvm.io | bash -s stable
           source $HOME/.rvm/scripts/rvm
           rvm install 2.2.2 --default
@@ -13,10 +16,6 @@ build:
     - rvm-use:
         version: 2.2.2
     - bundle-install
-    #- script:
-    #    name: run kitchen init
-    #    code: |
-    #      kitchen init --driver=kitchen-docker --provisioner=itamae
     - script:
         name: run kitchen test
         code: |
