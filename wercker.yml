@@ -22,6 +22,8 @@ build:
           which ruby
           ruby -v
           which gem 
+          docker version
+          docker ps
     - script:
         name: bundle install
         code: |
