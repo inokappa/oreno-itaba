@@ -1,27 +1,30 @@
 box: wercker-labs/docker
+no-response-timeout: 10
 build:
   steps:
-    - install-packages:
-        packages: |
-          ruby
-          ruby-dev
     - script:
-        name: run bundle install
+        name: rvm install
         code: |
-          gem install bundler --no-ri --no-rdoc -V
-          bundle install
-    - script:
-        name: run kitchen init
-        code: |
-          kitchen init --driver=kitchen-docker --provisioner=itamae
+          sudo apt-get update -y
+          curl -sSL https://get.rvm.io | bash -s stable
+          source $HOME/.rvm/scripts/rvm
+          rvm install 2.2.2 --default
+          echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
+    - rvm-use:
+        version: 2.2.2
+    - bundle install
+    #- script:
+    #    name: run kitchen init
+    #    code: |
+    #      kitchen init --driver=kitchen-docker --provisioner=itamae
     - script:
         name: run kitchen test
         code: |
-          kitchen test
+          bundle exec kitchen test
     - script:
         name: run kitchen verify
         code: |
-          kitchen verify
+          bundle exec kitchen verify
 
   after-steps:
     - sherzberg/slack-notify:
