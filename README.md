@@ -11,8 +11,9 @@
 - http://qiita.com/sawanoboly/items/7cf323e65a4757321553
 - http://qiita.com/Marcy/items/7ca000f83d08266ee352
 - http://qiita.com/riocampos/items/0df10dd7956ce9de0ffb
+- http://gihyo.jp/admin/serial/01/itamae
 
-### 使い方
+### test-kitchen 周りの使い方
 
 - bundle install
 
@@ -60,10 +61,31 @@ kitchen converge
 kithcen verify
 ```
 
+### itamae の使い方
+
+- Docker バックエンド
+
+```
+itamae docker file/default.rb --container ${container_name} --log-level=debug --dry-run
+itamae docker file/default.rb --container ${container_name} --log-level=debug 
+```
+
+- SSH バックエンド
+
+```
+itamae ssh --user=ansible --ask-password file/default.rb --host=127.0.0.1 --port=22 --log-level=debug --dry-run
+itamae ssh --user=ansible --ask-password file/default.rb --host=127.0.0.1 --port=22 --log-level=debug
+```
+
+### itamae のレシピの書き方
+
+- https://github.com/itamae-kitchen/itamae/wiki
+
 ### ハマったところとか
 
 - 検証環境（MacOS X 10.10）の Ruby バージョンが古かったので ruby-build を更新して `rbenv install 2.2.2` でRuby を更新
 - spec ファイルの置き場は `test/integration/default/serverspec/*_spec.rb` にレシピ毎に置く
+- Docker backend を利用する場合には [file リソース](https://github.com/itamae-kitchen/itamae/wiki/file-resource)で `edit` アクション、`content` リソースが利用出来ない（要調査）
 
 ### ファイル構成
 
