@@ -14,15 +14,11 @@ file "/tmp/file01" do
   mode "755"
 end
 
-#file "/tmp/file02" do
-#  content 'Hello itamae'
-#end
-#
-file "/tmp/file05" do
+file "/tmp/file01" do
+  action :edit
+  content 'Hello itamae'
+end
+
+file "/tmp/file02" do
   content "Hello itamae"
 end
-
-file "/tmp/file03" do
-  action :create
-end
-
