@@ -16,7 +16,9 @@ end
 
 file "/tmp/file01" do
   action :edit
-  content 'Hello itamae'
+  block do |content|
+    content.gsub!("", "Hello itamae")
+  end
 end
 
 file "/tmp/file02" do
