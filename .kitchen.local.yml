@@ -19,3 +19,4 @@ suites:
   - name: default
     run_list:
       - recipes/httpd/default.rb
+      - recipes/file/default.rb
