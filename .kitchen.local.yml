@@ -9,7 +9,11 @@ platforms:
   - name: centos-6
     driver_config:
       image: centos:centos6
-      require_chef_omnibus: false
+
+  - name: ubuntu-1404
+    driver_config:
+      image: ubuntu
+      privileged: true
 
 suites:
   - name: default

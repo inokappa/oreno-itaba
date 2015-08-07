@@ -17,14 +17,6 @@ build:
     - rvm-use:
         version: 2.2.2
     - script:
-        name: check ruby
-        code: |
-          which ruby
-          ruby -v
-          which gem 
-          docker version
-          docker ps
-    - script:
         name: bundle install
         code: |
           gem install bundler
