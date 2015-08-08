@@ -103,7 +103,7 @@ itamae ssh --user=user --ask-password kitchen/roles/web.rb --host=xxx.xxx.xxx.xx
 
 #### OS 毎の処理
 
-- 多分 Specinfra が由なに計らってくれるので以下のような書き方が出来る
+- 多分 ohai or Specinfra が由なに計らってくれるので以下のような書き方が出来る
 
 ```ruby
 case node[:platform]
